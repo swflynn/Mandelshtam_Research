@@ -1,0 +1,106 @@
+%=============================================================================80
+% 			     Beamer Presentation Template		       %
+%=============================================================================80
+\documentclass[t,10pt,mathserif,xcolor=pst,pdftex]{beamer}
+\mode<presentation>
+\usetheme{Berkeley}
+\usecolortheme{dolphin}
+\beamertemplatenavigationsymbolsempty
+\usefonttheme[onlylarge]{serif}
+%=============================================================================80
+% 			    	  Packages 				       %
+%=============================================================================80
+\usepackage[USenglish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{colortbl}
+\usepackage{pstricks}
+\usepackage{multimedia}
+\usepackage{bm}
+\usepackage{nicefrac}
+\usepackage{charter}
+%=============================================================================80
+% 			    	  Commands				       %
+%=============================================================================80
+\def\Rz{\mathbb{R}}
+\def\Cz{\mathbb{C}}
+\newcommand{\be}{\begin{equation}} 
+\newcommand{\ee}{\end{equation}}  
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\bvec}[1]{\mathbf{#1}}
+\newcommand{\transp}{^{\mathrm{T}}}
+\newcommand{\brho}{\boldsymbol{\rho}}
+\newcommand{\br}{\textbf{r}}
+\newcommand{\bq}{\textbf{q}}
+\newcommand{\by}{\textbf{y}}
+\newcommand{\bz}{\textbf{z}}
+\newcommand{\Vavg}{\langle V \rangle_{H'}}
+\newcommand{\angstrom}{\mbox{\normalfont\AA}}
+\newcommand{\Eq}[1]{Eq.~\eqref{#1}}
+\newcommand{\Eqs}[1]{Eqs.~\eqref{#1}}
+\newcommand{\Fig}{Fig. \ref}
+\newcommand{\Tab}{Table. \ref}
+\newcommand{\pd}{\partial}
+%=============================================================================80
+% 			     Title Information			               %
+%=============================================================================80
+\title[Column Title]{Title}
+\author[Column Name]{Presentation Author}
+\institute[UC Irvine]{\includegraphics[]{}\\[]
+Department of Chemistry, University of California, Irvine, 2208 Natural Sciences II}
+\date\today
+%=============================================================================80
+% 			    Beamer Corner Image 			       %
+%=============================================================================80
+\pgfdeclareimage[]{}{}
+\logo{\pgfuseimage{}}
+%=============================================================================80
+% 			    Begin Presentation 				       %
+%=============================================================================80
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\section{The Fist Section Title}
+
+\subsection{The First SubSection}
+
+\begin{frame}{The First Slide Title}
+\begin{itemize}
+\item The First Point
+\end{itemize}
+% End ?
+\end{frame}
+
+\subsection{The Second SubSection}
+
+\begin{frame}{The Second Slide Title}
+
+\begin{itemize}
+\item Another Interesting Point
+\end{itemize}
+\be
+	\text{My Equation} S\equiv \frac{\partial}{\partial}
+\ee
+
+\end{frame}
+
+\section{The Second Section}
+
+\begin{frame}{Another Slide}
+
+\begin{itemize}
+\item The Good Stuff
+\end{itemize}
+
+\begin{itemize}
+\item More Stuff is Good
+\end{itemize}
+
+\end{frame}
+
+
+\end{document}
