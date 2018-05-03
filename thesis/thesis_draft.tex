@@ -1,0 +1,399 @@
+%=============================================================================80
+% 			      PhD Thesis Template			       %
+%=============================================================================80
+\documentclass[12pt]{article}
+%==============================================================================%
+% 			    	  Packages 				       %
+%==============================================================================%
+\usepackage{notoccite}
+\usepackage[affil-it]{authblk}
+\usepackage{textcomp}
+\usepackage[margin=1.0in]{geometry}
+\usepackage[sort&compress,numbers]{natbib}
+\usepackage{setspace}
+\usepackage{indentfirst}
+\usepackage{compactbib}
+\usepackage{setspace}
+\usepackage{authblk}
+\usepackage[hidelinks]{hyperref}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage[pdftex]{graphicx}
+\usepackage{nicefrac}
+\usepackage[np,autolanguage]{numprint}
+\usepackage{longtable}
+\usepackage{bm}
+\usepackage{float}
+\usepackage{morefloats}
+\usepackage[caption = false]{subfig}
+\usepackage{chngcntr}
+\usepackage{lipsum}
+%==============================================================================%
+% 			    	   Commands				       %
+%==============================================================================%
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\counterwithin{equation}{section}
+\def\Rz{\mathbb{R}}
+\def\Cz{\mathbb{C}}
+\newcommand{\be}{\begin{equation}} 
+\newcommand{\ee}{\end{equation}}  
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\transp}{^{\mathrm{T}}}
+\newcommand{\brho}{\boldsymbol{\rho}}
+\newcommand{\br}{\textbf{r}}
+\newcommand{\bq}{\textbf{q}}
+\newcommand{\by}{\textbf{y}}
+\newcommand{\bz}{\textbf{z}}
+\newcommand{\Vavg}{\langle V \rangle_{H'}}
+\newcommand{\angstrom}{\mbox{\normalfont\AA}}
+\newcommand{\Eq}[1]{Eq.~\eqref{#1}}
+\newcommand{\Eqs}[1]{Eqs.~\eqref{#1}}
+\newcommand{\Fig}{Fig. \ref}
+\newcommand{\Tab}{Table. \ref}
+\DeclareMathSizes{12}{12}{10}{10}
+\doublespacing
+\makeatletter
+\def\@seccntformat#1{%
+  \expandafter\ifx\csname c@#1\endcsname\c@section\else
+  \csname the#1\endcsname\quad
+  \fi}
+\makeatother
+
+% longtable caption width
+\setlength{\LTcapwidth}{\textwidth}
+%==============================================================================%
+% 			    	Begin Thesis				       %
+%==============================================================================%
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+\uppercase{University of California, 
+
+Irvine}
+
+\bigskip
+Thesis Title
+
+\bigskip
+
+\uppercase{Dissertation}
+
+\bigskip
+
+submitted in partial satisfaction of the requirements 
+
+for the degree of
+
+\bigskip
+
+\uppercase{Doctor of Philosophy}
+
+in Chemistry
+
+\bigskip
+
+by 
+
+\bigskip
+
+Some Name
+\end{center}
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\bigskip
+
+\begin{flushright}
+\singlespacing
+Dissertation Committee:
+
+Professor Vladimir A. Mandelshtam, Chair
+
+Professor some name
+
+Professor some other name 
+\end{flushright}
+
+\mbox{}
+\vfill
+\begin{center}
+2018
+\end{center}
+
+\newpage
+\pagenumbering{roman}
+\thispagestyle{empty}
+\mbox{}
+\vfill
+\begin{center}
+\singlespacing
+\footnotesize
+%==============================================================================%
+% 		    Copyright Information for the Thesis 		       %
+%==============================================================================%
+Chapter x \textcopyright{} date Journal
+
+Portion of Chapter y \textcopyright{} Date Publishing Journal 
+
+%Chapter 4 \textcopyright{} 2016 AIP Publishing
+
+%Chapter 5 \textcopyright{} 2017 American Chemical Society
+
+All other materials \textcopyright{} Date Your Name
+\end{center}
+
+\newpage
+%==============================================================================%
+% 		    	    Thesis Dedication Page			       %
+%==============================================================================%
+\begin{center}
+\hspace{0pt}
+\vfill
+\uppercase{{\bf Dedication}}
+
+To my parents, family members, friends, and any other people who made this work possible.
+Just a few sentences, more can go in the acknowledgements.
+\vfill
+\hspace{0pt}
+\end{center}
+%==============================================================================%
+% 		    	    	Table Of Contents			       %
+%==============================================================================%
+\newpage
+\renewcommand{\contentsname}{}
+\begin{center}
+\section*{\uppercase{Table of Contents}}
+\end{center}
+
+\tableofcontents
+\addtocontents{toc}{~\hfill Page\par}
+%==============================================================================%
+% 		    	    	List of Figures				       %
+%==============================================================================%
+\newpage
+\renewcommand{\listfigurename}{}
+\begin{center}
+\section*{\uppercase{List of Figures}}
+\end{center}
+\addcontentsline{toc}{section}{\uppercase{List of Figures}}
+\listoffigures
+\addtocontents{lof}{~\hfill Page\par}
+%==============================================================================%
+% 		    	        List of Tables				       %
+%==============================================================================%
+\newpage
+\renewcommand{\listtablename}{}
+\begin{center}
+\section*{\uppercase{List of Tables}}
+\end{center}
+\addcontentsline{toc}{section}{\uppercase{List of Tables}}
+\listoftables
+\addtocontents{lot}{~\hfill Page\par}
+%==============================================================================%
+% 		    	    	Acknowledgments				       %
+%==============================================================================%
+\newpage
+\begin{center}
+\section*{\uppercase{Acknowledgments}}
+\end{center}
+\addcontentsline{toc}{section}{\uppercase{Acknowledgments}}
+
+First and foremost, I would like to thank my faculty advisor, Vladimir Mandelshtam, for stuff...
+Also, I want to acknowledge the other members of my committee, for help, and other people who helped at the university.
+Everyone in administrative positions and in the front office, notably whoever helped solve admin issues. 
+Finally, I want to say a special thank you to all of the co-workers (in my group and also in other groups) whom I have been privileged to work with throughout my time at UC Irvine, and who have contributed to making my projects successful. 
+I would like to thank group members, friends, in other groups, etc. 
+%This work was supported by the National Science Foundation (NSF) Grant No. CHE-1566334.
+%==============================================================================%
+% 		    	    	    CV					       %
+%==============================================================================%
+\newpage
+\begin{center}
+\section*{\uppercase{Curriculum Vitae}}
+\addcontentsline{toc}{section}{\uppercase{Curriculum Vitae}}
+
+\Large{\uppercase{{\bf Your Name}}}
+\end{center}
+
+\uppercase{Last Name}, First Name
+
+\uppercase{Prepared}: Date
+
+\uppercase{Email}: 
+
+\uppercase{Date of Birth}: 
+
+\uppercase{{\bf Education:}}
+\begin{enumerate}
+\singlespacing
+\item Degrees
+\end{enumerate}
+
+\uppercase{{\bf Positions:}}
+\begin{enumerate}
+\singlespacing
+\item Undergraduate Student Researcher, Department of Chemsitry, University of Somewhere. (Dates)
+\item Graduate Student Teaching Assistant, Department of Chemistry, University of California, Irvine. (Dates)
+\item Graduate Student Researcher, Department of Chemistry, University of California, Irvine. Research Advisor: 
+Professor Vladimir A. Mandelshtam. (Dates)
+\end{enumerate}
+
+\uppercase{{\bf Research Publications:}}
+\begin{enumerate}
+\singlespacing
+\item \underline{My Name} and Others
+``Title of paper'' and reference
+\end{enumerate}
+
+\uppercase{{\bf Awards and Honors:}}
+\begin{enumerate}
+\singlespacing
+\item Special stuff
+\end{enumerate}
+
+\uppercase{{\bf Poster Presentations:}}
+\begin{enumerate}
+\singlespacing
+\item ``Title'': Host
+	Some location and date
+\end{enumerate}
+
+\newpage
+%==============================================================================%
+% 		    	          Abstract
+%==============================================================================%
+\begin{center}
+\section*{\uppercase{Abstract of the Dissertation}}
+\addcontentsline{toc}{section}{\uppercase{Abstract of the Dissertation}}
+The name
+
+by
+
+Your Name
+
+Doctor of Philosophy in Chemistry
+
+University of California, Irvine, year
+
+Professor Vladimir A. Mandelshtam, Chair
+\end{center}
+\bigskip
+\noindent \lipsum{1}
+
+\cleardoublepage
+\pagenumbering{arabic}
+%==============================================================================%
+% 		    	     Thesis Work Chapter 1
+%==============================================================================%
+\section*{Chapter 1}
+\bigskip
+\section{Introduction to the Methods}
+\label{sec:1}
+
+\lipsum{1}
+
+\subsection{Other Stuff}
+\label{subsec:1.1}
+\lipsum{1}
+
+\subsubsection{Another One}
+\label{subsubsec:1.1.1}
+\lipsum{1}
+%==============================================================================%
+% 		    	     Thesis Work Chapter 2
+%==============================================================================%
+\newpage
+\section*{Chapter 2}
+\bigskip
+\section{Another Section}
+\label{sec:2}
+\lipsum{1}
+%==============================================================================%
+% 	 It is somewhat standard to have figures be the entire page	       %
+%==============================================================================%
+\begin{figure*}
+\includegraphics[width=0.999\textwidth]{myfig.png}
+\caption{Figure 1 Caption Text}
+\label{fig:errorbars}
+\end{figure*}
+%==============================================================================%
+% 		    	     Thesis Work Chapter 2
+%==============================================================================%
+\newpage
+\section*{Chapter 3}
+\bigskip
+\section{Chapter 3 Section}
+\label{sec:3}
+\subsection{And a Subsection}
+\label{subsec:3.1}
+
+\lipsum{1}
+%==============================================================================%
+% 		    	        Table with Caption 
+%==============================================================================%
+\begin{table*}
+\caption{Table 1 Caption Text}
+\bigskip
+\centering{
+\label{tab:param}
+\begin{tabular}{|c|c|c|}
+\hline
+Cluster & $N_W$ & $\tau_{\rm max}$ (au) \\
+\hline
+(H$_2$O)$_2$ & $2\times 10^4$ & $2\times 10^6$ \\
+(D$_2$O)$_2$ & $2\times 10^4$ & $2\times 10^6$ \\
+\hline
+(H$_2$O)$_3$ & 2, 4, $6\times 10^4$ & $4\times 10^6$ \\
+(D$_2$O)$_3$ & 2, 4, $6\times 10^4$ & $4\times 10^6$ \\
+\hline
+(H$_2$O)$_4$ & 4, 6, $8\times 10^4$ & $2\times 10^6$ \\
+(D$_2$O)$_4$ & 4, 6, $8\times 10^4$ & $2\times 10^6$ \\
+\hline
+(H$_2$O)$_5$ & $2\times 10^5$ & $2\times 10^6$ \\
+(D$_2$O)$_5$ & $2\times 10^5$ & $2\times 10^6$ \\
+\hline
+(H$_2$O)$_6$ & $10^6$ & $8.8\times 10^5$ \\
+(D$_2$O)$_6$ & $10^6$ & $8.2\times 10^5$ \\
+\hline
+\end{tabular}}
+\end{table*}
+%==============================================================================%
+% 		    	       Bibliography 
+%==============================================================================%
+\newpage
+\section*{Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
+\renewcommand{\refname}{}
+\bibliographystyle{apsrev4-1}
+\nocite{apsrev41Control}
+\bibliography{thesis_dissertation,revtex-custom}
+%==============================================================================%
+% 		    	          Appendix 
+%==============================================================================%
+\newpage
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+\bigskip
+
+\section*{Sample Fortran 90 Program}
+The following text is the main body of the code used to determine stuff
+This small piece of pseudo-code demonstrates the numerical implementation of the algorithm.
+
+\end{document}
