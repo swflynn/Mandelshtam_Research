@@ -1,0 +1,96 @@
+\documentclass{article}
+%=============================================================================80
+%	                          Packages                                     %
+%==============================================================================%
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{braket}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[margin=0.7in]{geometry}
+\usepackage[version=4]{mhchem}
+\usepackage{hyperref}
+%==============================================================================%
+%                           User-Defined Commands                              %
+%==============================================================================%
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\pd}{\partial}
+%==============================================================================%
+%                             Title Information                                %
+%==============================================================================%
+\title{Chapter 1; Preliminaries}
+\author{Shane Flynn}
+%==============================================================================%
+\begin{document}
+
+\section*{Monte Carlo Error Analysis}
+This code computes a single vertical error bar associated with a column of data generated as a function of iteration. 
+The user runs a total of N$_{MC}$ steps in their Monte Carlo Simulation, and generates an associated data point at each step. 
+N$_{MC}$ most likely is a very large number, therefore during the simulation the user computes a partial average at every i$^{th}$ step, therefore the simulation outputs a data vector running from 1 to N.
+\be
+N = \frac{N_{MC}}{i}
+\ee
+Therefore the user will be expected to provide the size of their data to be processed (N) ahead of time.
+
+In a Monte-Carlo simulation the initial data may be noisy (you have a small number of points) it is therefore common to actually ignore the first few data points (even if already partial averaged). 
+The user should provide an integer, skip, that sets the number of data points to ignore for the analysis. 
+Therefore the data to process runs from skip to N.
+
+\subsection*{Second Partial Average}
+If there is a lot of data, the user may want to compute another partial average (a partial average of the partially averaged data) just to make the data more manageable (we have written a code for each case).
+In this case the user should provide the frequency with which to partial average the data (an integer defining how many terms to use in the second partial average). 
+
+A programming complication, there is no guarantee that the user will evenly divide the data intervals, in the code we compute a parameter (adjust) to shift the data by to make sure we have a whole number for the interval (we throw out more data to ensure this). 
+\be
+\text{adjust} = mod[(N-skip), \text{p freq}]
+\ee
+So adjust provides the remainder of this division, and we will now process data starting at skip+adjust. 
+
+For computing the standard deviation we will need the avarage of this data
+\be
+\text{average} = \frac{1}{N - (\text{skip}+\text{adjust})} \sum_{i=(\text{skip}+\text{adjust})}^{N} \text{data}(i)
+\ee
+
+The code then computes the partial averages over this subset of the data producing 
+\be
+\text{size(p data)} = \frac{N - (\text{skip} + \text{adjust})}{\text{p freq}}
+\ee
+
+We then compute the variance over this partially averaged data relative to the average. 
+\be
+\sigma^2 = \frac{\sum_{k=1}^{\text{size(p data)}} \left(\text{p data(k)} - \text{average}\right)^2}{(\text{size(p data - 1)})(\text{size p data})}
+\ee
+Where our denominator is adjusted due to the finite populaiton of the ismulation (the minus 1 term). 
+
+And finally the standard deviation is simply the square root
+\be
+\sigma = \sqrt{\sigma^2}
+\ee
+
+\subsection*{Single Partial Average}
+If the user provides a set of data from 1 to N, we can also compute the error directly from this data.
+Again the user provides a skip parameter and the average is computed over the used data. 
+\be
+\text{average} = \frac{1}{N-\text{skip}} \sum_{i=\text{skip}}^N data(i)
+\ee
+And the variance is directly computed
+\be
+\sigma^2 = \frac{\sum_{k=\text{skip}}^{N} \left(\text{data(k)} - \text{average}\right)^2}{(N-\text{skip}-1)(N-\text{skip})}
+\ee
+And finally the standard deviation is simply the square root
+\be
+\sigma = \sqrt{\sigma^2}
+\ee
+
+
+
+
+
+
+
+\end{document}
