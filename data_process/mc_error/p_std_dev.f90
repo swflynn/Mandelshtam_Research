@@ -24,8 +24,8 @@
 !This code will take a list indepdent data and output Standard Deviations
 program Standard_Deviation_MC
 implicit none
-double precision, allocatable :: mc_data(:), partial_avg(:) , variance(:)
-double precision :: std_deviation, avg , old_avg
+double precision, allocatable :: mc_data(:,:), partial_avg(:,:) , variance(:,:)
+double precision ,allocatable:: std_deviation(:,:), avg(:,:) , old_avg(:,:)
 integer :: i, j , k , l ,N, M, partial_avg_size , skip , adjust , freq , count,x
 character(50) :: datafile
 !==============================================================================!
@@ -36,7 +36,8 @@ read (*,*) freq
 read (*,*) N
 read (*,*) M
 read(*,*) datafile
-allocate(mc_data(N))
+allocate(mc_data(N,M),avg(N,M))
+allocate(std_deviation(1,M),old_avg(1,M))
 write (*,*) 'Sucessfully Read in paramters from input file'
 !==============================================================================!
 !Reading in Data file
@@ -44,9 +45,12 @@ write (*,*) 'Sucessfully Read in paramters from input file'
 !This will be turned into a matrix loop eventually for matrix sets of data
 !Problem for another day
 open (13,file = datafile)
-read (13,*) mc_data(:)
+do i = 1 , N
+read (13,*) mc_data(i,:)
+write(*,*) mc_data(i,:)
+end do
 close(13)
-write(*,*) mc_data
+!write(*,*) mc_data
 !==============================================================================!
 !Setting Varaibles for Calc Partial Averages
 !==============================================================================!
@@ -54,13 +58,13 @@ adjust = mod((N-skip),freq)
 !write(*,*) 'Adjust is ' , adjust
 partial_avg_size = (N - skip - adjust ) / freq
 !write(*,*) 'partial_avg_size is' , partial_avg_size
-allocate (partial_avg(partial_avg_size),variance(partial_avg_size))
+allocate (partial_avg(partial_avg_size,M),variance(partial_avg_size,M))
 avg = 0d0
 count = 0d0
 partial_avg = 0D0
 x = 0d0
 do i = (1 + skip + adjust) , N
-  avg = avg + mc_data(i)
+  avg(i,:) = avg(i,:) + mc_data(i,:)
   write (*,*) avg
   !write(*,*) 'some numbers' , avg
   count = count + 1
@@ -68,7 +72,7 @@ do i = (1 + skip + adjust) , N
     avg = avg / freq
   !  write (*,*) 'avg/freq is' , avg
     x = x + 1
-   partial_avg(x) =  avg
+   partial_avg(x,:) =  avg(x,:)
     avg = 0d0
     count = 0d0
   end if
@@ -77,15 +81,15 @@ write(*,*) 'Avg Array is' , partial_avg
 
 old_avg = 0d0
 do i = (1 + skip + adjust) , N
-  old_avg = old_avg + mc_data(i)
+  old_avg(1,:) = old_avg(1,:) + mc_data(i,:)
 end do
 old_avg = old_avg / (N - (skip+adjust))
 write(*,*) 'old_avg is :' , old_avg
 do i = 1 , partial_avg_size
-  variance(i) = (partial_avg(i) - old_avg)**2
+  variance(i,:) = (partial_avg(i,:) - old_avg(1,:))**2
   write(*,*) variance
 end do
-std_deviation = sqrt(sum(variance)/(partial_avg_size-1))
+std_deviation(1,:) = sqrt(sum(variance)/(partial_avg_size-1))
 write(*,*) 'Standard Deviation' , std_deviation
 
 end program
