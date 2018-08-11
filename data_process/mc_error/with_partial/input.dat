@@ -1,0 +1,6 @@
+data.dat        !input data file
+error_out.dat   !output data, final iteration and error bar
+10              !Total number of data points (per column)
+3               !Number of columns of data
+1               !Initial data to skip in analysis
+2               !Number of points used for partial average

@@ -1,0 +1,5 @@
+fundamentals.dat          !input data file
+error_out.dat   !output data, final dat point and associated erorr bar
+100              !Total number of data points (per column)
+5               !Number of columns of data
+10               !Initial data to skip in analysis
