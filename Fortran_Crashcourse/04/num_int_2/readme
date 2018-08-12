@@ -1,0 +1,7 @@
+to run this code simp;y do the following at command line
+$ bash compile.sh
+
+
+
+
+a compile file essentially contains a bunch of command line commands, it saves time
