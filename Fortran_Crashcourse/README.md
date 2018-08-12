@@ -16,11 +16,6 @@ All materials made available here were developed with the intention of helping s
 We are generting these materials as a scholarly pursuit, not for hire, and have decided to make them freely available. 
 We hope that the material can be useful to anyone motivated to enter conputational science, looking for somewhere to begin self-study. 
 
-For these reasons we have decided to place the content under (c) Shane Flynn and contributers, with the following understanding:
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-
-Under the terms of giving appropriate credit (reference the original work and changes made), adapted work must remain under ShareAlike, and you MAY NOT use the material for commercial purposes.
-Please feel free to share, copy and redistribute the material in any format, and to change and build upon the material. 
 
 ## Table of Contents
 ### Lesson 00: Installing gfortran and Hello World
