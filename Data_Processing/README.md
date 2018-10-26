@@ -7,3 +7,6 @@ The error is computed as a function of iteration during the simulation, given a 
 
 ## Plotting Python
 Generic Python 2 programs for making quick plots of x,y data
+
+## Grades
+Python 2 program for passing in exam grades and storing to file (associated iwth student ID). 
