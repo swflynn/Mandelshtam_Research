@@ -1,2 +1,2 @@
 # Resources
-Various computational resources that may be useful for graduate students. 
+A collection of templates and tutorials for getting new graduate students started with computational work. 
